@@ -1,9 +1,9 @@
-DROP TABLE IF EXISTS sales_summary
-
-CREATE TABLE sales_summary AS
 SELECT
-s.region,
-  p.catrgory,
-  COUNT(*) AS num_orders,
-  SUM(s.amount) AS total_amount
-FROM sales s
+    department,
+    COUNT(*) AS emp_count,
+    AVG(salary) AS avg_salary
+FROM employees
+WHERE salary > 50000
+GROUP BY department
+HAVING COUNT(*) > 2
+ORDER BY avg_salary DESC;
